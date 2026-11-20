@@ -1,0 +1,150 @@
+/* تنسيقات عامة وتباين ألوان متوافق مع معايير WAVE */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF8F5; /* لون خلفية كريمي فاتح */
+    color: #2C1E16; /* لون نص بني داكن جداً لتباين عالي */
+}
+
+/* 1. شرط Skip to Main Content يظهر فقط عند التركيز (Focus) */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background-color: #2C1E16;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* الهيدر */
+header {
+    background-color: #3E2723;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 2. شرط تنسيق شريط التنقل باستخدام Flex وأكثر من 3 خصائص CSS */
+nav {
+    background-color: #5D4037;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* تطبيق Flex */
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 3. شرط Hover pseudo-class مع حركة انتقالية (Transition) */
+nav a:hover, nav a:focus {
+    background-color: #D7CCC8;
+    color: #2C1E16;
+    transform: translateY(-2px);
+}
+
+/* المحتوى الرئيسي */
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 4. شرط تطبيق Grid بعمودين على الأقل */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. شرط تطبيق Flex على المعرض (صفحة الـ 5 صور) */
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    width: 300px;
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* 6. شرط Box Model لكل الصور (border, padding, border-radius) */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 4px solid #8D6E63;
+    padding: 6px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+    border-color: #3E2723;
+}
+
+/* 7. شرط nth-child لتغيير شكل الحواف لكل عنصر زوجي في المعرض */
+.flex-gallery .gallery-item:nth-child(even) img {
+    border-radius: 50px 10px 50px 10px;
+    border-color: #3E2723;
+}
+
+/* الفوتر */
+footer {
+    background-color: #2C1E16;
+    color: #FAF8F5;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
